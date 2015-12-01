@@ -1,4 +1,10 @@
 'use strict';
+// **********************************
+// *激进版50% 保守版15改为10
+// *
+// **********************************
+
+
 
 //定义FS操作 fs
 var fs = require('graceful-fs'); 
@@ -38,7 +44,7 @@ function getAll(){
 
 // 输出函数。data为array时，速度最快。
 function out(data){
-	fs.appendFile('1.txt', data, function(err){
+	fs.appendFile('jj.txt', data, function(err){
 		if(err) throw err;
 		console.log('2 ok!');
 	});	
@@ -58,18 +64,15 @@ function getCaiyun(){
 	console.log('start getCaiyun');
 	console.log('tt length:'+tt.length/2);
 	var o = 0;
-	// var log = new Array();
 	var c = new Array();
 	for (var i = 0; i < t2; i++) {
 		// zz是要抽取qq数组的下标
 		var zz = Math.floor(Math.random()*(t1-1-i));
 		c.push(tt.slice(zz,zz+1));
 		tt.splice(zz,1);
-		// log.push(o++);
 		o++;
 	};
 	console.log('getCaiyun ok!'+o);
-	// outlog(log);
 	return c;
 }
 
@@ -132,13 +135,13 @@ function from15(){
 	var jsq = 0;
 	for (var i = 0; i < tt.length; i++) {
 		var ta = tt[i].split(' ');
-		if (ta[0]>=15){
+		if (ta[0]>=10){
 			tt.splice(i,1);
 			i--;
 			jsq++;
 		}
 	};
-	console.log('大于15：'+jsq);
+	console.log('大于10：'+jsq);
 }
 
 // 从qq数组中去除15满组合
@@ -147,13 +150,13 @@ function to15(){
 	for (var i = 0; i < tt.length; i++) {
 		var ta = tt[i].split(' ');
 		var tl = ta.length;
-		if (ta[tl-2]<=15){
+		if (ta[tl-2]<=10){
 			tt.splice(i,1);
 			i--;
 			jsq++;
 		}
 	};
-	console.log('小于15：'+jsq);	
+	console.log('小于10：'+jsq);	
 }
 
 // 从qq数组中去除15跳组合
@@ -167,13 +170,13 @@ function jump15(){
 		s3 = ta[3]-ta[2];	
 		s4 = ta[4]-ta[3];	
 		s5 = ta[5]-ta[4];	
-		if(s1>=14 || s2>=14 || s3>=14 || s4>=14 || s5>=14){
+		if(s1>=9 || s2>=9 || s3>=9 || s4>=9 || s5>=9){
 			tt.splice(i,1);
 			i--;
 			jsq++;
 		}
 	}
-	console.log('15跳:'+jsq);
+	console.log('10跳:'+jsq);
 }
 
 // 从qq数组中去除两头空组合 左9右9

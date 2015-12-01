@@ -1,4 +1,10 @@
 'use strict';
+// **********************************
+// *抽取10%
+// *
+// **********************************
+
+
 
 //定义FS操作 fs
 var fs = require('graceful-fs'); 
@@ -38,7 +44,7 @@ function getAll(){
 
 // 输出函数。data为array时，速度最快。
 function out(data){
-	fs.appendFile('1.txt', data, function(err){
+	fs.appendFile('1_10.txt', data, function(err){
 		if(err) throw err;
 		console.log('2 ok!');
 	});	
@@ -51,25 +57,22 @@ function outlog(data){
 	});	
 }
 
-// 从33位中随机抽取6位数字 50%
+// 从33位中随机抽取6位数字 10%
 function getCaiyun(){
 	var t1= tt.length;
-	var t2= tt.length/2;
+	var t2= tt.length/10;
 	console.log('start getCaiyun');
-	console.log('tt length:'+tt.length/2);
+	console.log('tt length:'+tt.length/10);
 	var o = 0;
-	// var log = new Array();
 	var c = new Array();
 	for (var i = 0; i < t2; i++) {
 		// zz是要抽取qq数组的下标
 		var zz = Math.floor(Math.random()*(t1-1-i));
 		c.push(tt.slice(zz,zz+1));
 		tt.splice(zz,1);
-		// log.push(o++);
 		o++;
 	};
 	console.log('getCaiyun ok!'+o);
-	// outlog(log);
 	return c;
 }
 
