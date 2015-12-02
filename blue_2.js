@@ -9,10 +9,10 @@ var tt = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 // 开始抽取
 out(getCaiyun());
 
-// 从16位中随机抽取8位数字 50%
+// 从16位中随机抽取2位数字 12.5%
 function getCaiyun(){
 	var t1= tt.length;
-	var t2= tt.length/2;
+	var t2= tt.length/8;
 	console.log('start getCaiyun');
 	var o = 0;
 	var c = new Array();
@@ -30,7 +30,7 @@ function getCaiyun(){
 
 // 输出函数。data为array时，速度最快。
 function out(data){
-	fs.appendFile('blue.txt', data, function(err){
+	fs.appendFile('bluecxb.txt', data, function(err){
 		if(err) throw err;
 		console.log('2 ok!');
 	});	
